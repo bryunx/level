@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>First Vue.JS Page</title>
+	<link rel="stylesheet" href="css/main.css"></link>
+	<link rel="stylesheet" href="css/animate.css"></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
+	<!-- jQuery -->
+	<script src="jquery/jquery-3.2.1.min.js"></script>
+	<script src="jquery/jquery.js"></script>
+	</head>
+	<body>
+		<div id="app">
+		  <h1>{{level}}: {{count}}</h1>
+		  <button @click="add" class="btn btn-primary">Level Up</button>
+		  <button @click="minus" class="btn btn-primary">Level Down</button>
+		  <button @click="reset" class="reset btn btn-primary">Reset</button>
+		</div>
+		<!-- javascript -->
+		<script src="vue/myvue.js"></script>
+		<!-- vus.js -->
+		<script src="js/vue.js"></script>
+		<script>
+			var app = new Vue({
+			  el: '#app',
+			  data: {
+			    message: 'Hello Vue!',
+			    count: 0
+			  },
+			  methods: {
+			  	add: function(){
+			  		this.count += 10
+			  	},			  	
+			  	minus: function(){
+			  		this.count -= 10
+			  	},
+			  	reset: function(){
+			  		this.count = 0
+			  	}
+			  },
+			  computed: {
+			  	level: function() {
+			  		if(this.count >= 200) {
+			  			return "Congratulations! You are a Professional!";
+			  		} else if(this.count >= 100) {
+			  			return "Upgraded to Intermediate!";
+			  		} else if(this.count >= 0) {
+			  			return "You are a Beginner"
+			  		} else {
+			  			return "Level Up"
+			  		}
+			  	}
+			  }
+			})
+		</script>
+	</body>
+</html>
